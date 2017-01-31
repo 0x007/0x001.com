@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[Python设置国内镜像]]></title>
       <url>%2F2017%2F02%2F01%2Fpython%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%2F</url>
-      <content type="text"><![CDATA[Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index-url=http://pypi.douban.com/simple pip 配置12345678[root@centos ~]# cat ~/.pip/pip.conf[global]timeout = 60index-url = http://pypi.douban.com/simple/[install]trusted-host = pypi.douban.com[list]format=columns Windows 设置国内镜像easy_install 配置 %HOME%\pydistutils.cfg文件，内容与Linux的easy_install配置文件一样pip 配置 %HOME%\pip\pip.ini文件，内容与Linux的pip配置文件一样]]></content>
+      <content type="text"><![CDATA[Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index-url=http://pypi.douban.com/simple pip 配置123456789[root@centos ~]# cat ~/.pip/pip.conf[global]timeout = 60index-url = http://pypi.douban.com/simple/[install]trusted-host = pypi.douban.com[list]format=columnsconsole.log("我亮了") Windows 设置国内镜像easy_install 配置 %HOME%\pydistutils.cfg文件，内容与Linux的easy_install配置文件一样pip 配置 %HOME%\pip\pip.ini文件，内容与Linux的pip配置文件一样]]></content>
     </entry>
 
     
