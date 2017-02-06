@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.0x001.com/"/>
-  <updated>2017-02-06T02:16:41.000Z</updated>
+  <updated>2017-02-06T08:08:11.000Z</updated>
   <id>http://www.0x001.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://www.0x001.com/2017/02/06/Linux%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"/>
     <id>http://www.0x001.com/2017/02/06/Linux启动顺序/</id>
     <published>2017-02-06T02:05:32.000Z</published>
-    <updated>2017-02-06T02:16:41.000Z</updated>
+    <updated>2017-02-06T08:08:11.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Linux启动顺序"><a href="#Linux启动顺序" class="headerlink" title="Linux启动顺序"></a>Linux启动顺序</h1><h2 id="1-Grub加载内核之后，第一个运行的程序是-sbin-init"><a href="#1-Grub加载内核之后，第一个运行的程序是-sbin-init" class="headerlink" title="1. Grub加载内核之后，第一个运行的程序是 /sbin/init"></a>1. Grub加载内核之后，第一个运行的程序是 /sbin/init</h2><p>init是sysinit的一个实体进程，是系统所有进程的顶级父进程，PID是1</p>
+    <content type="html"><![CDATA[<h1 id="一、系统启动初始化init阶段"><a href="#一、系统启动初始化init阶段" class="headerlink" title="一、系统启动初始化init阶段"></a>一、系统启动初始化init阶段</h1><h2 id="1-Grub加载内核之后，第一个运行的程序是-sbin-init"><a href="#1-Grub加载内核之后，第一个运行的程序是-sbin-init" class="headerlink" title="1. Grub加载内核之后，第一个运行的程序是 /sbin/init"></a>1. Grub加载内核之后，第一个运行的程序是 /sbin/init</h2><p>init是sysinit的一个实体进程，是系统所有进程的顶级父进程，PID是1</p>
 <h2 id="2-sbin-init-读取-etc-inittab文件，确定运行级别"><a href="#2-sbin-init-读取-etc-inittab文件，确定运行级别" class="headerlink" title="2.  /sbin/init 读取 /etc/inittab文件，确定运行级别"></a>2.  /sbin/init 读取 /etc/inittab文件，确定运行级别</h2><p><strong>etc/inittab文件的信息会包含以下信息给init程序</strong></p>
 <ul>
 <li>捕获组合键的定义</li>
@@ -51,29 +51,35 @@
 <p>/etc/rc脚本确定 /etc/inittab文件配置的运行级别ID(X)。</p>
 </blockquote>
 <p>每个 runlevel X 都有一个这样的目录，目录名为/etc/rc.d/rcX.d。在这些目录下存放着很多不同的脚本。</p>
-<p>文件名以 S 开头的脚本就是启动时应该运行的脚本，S 后面跟的数字定义了这些脚本的执行顺序。</p>
-<p>文件名以 K 开头的脚本表示启动的时候不执行。</p>
+<p>文件名以 S (start) 开头的脚本就是启动时应该运行的脚本，S 后面跟的数字定义了这些脚本的执行顺序。</p>
+<p>文件名以 K (kill) 开头的脚本表示启动的时候不执行的脚本。</p>
 <p>在/etc/rc.d/rcX.d 目录下的脚本其实都是一些软链接文件，真实的脚本文件存放在/etc/init.d 目录下, 这个目录的文件通常被称为Linux服务启动脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[root@centos rc3.d]# pwd</div><div class="line">/etc/rc3.d</div><div class="line">[root@centos rc3.d]# ls -al</div><div class="line">总用量 8</div><div class="line">drwxr-xr-x.  2 root root 4096 11月 29 13:12 .</div><div class="line">drwxr-xr-x. 10 root root 4096 1月  27 09:34 ..</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 29 12:49 K10saslauthd -&gt; ../init.d/saslauthd</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 K30postfix -&gt; ../init.d/postfix</div><div class="line">lrwxrwxrwx.  1 root root   20 11月 16 2015 K50netconsole -&gt; ../init.d/netconsole</div><div class="line">lrwxrwxrwx.  1 root root   21 11月 16 2015 K87restorecond -&gt; ../init.d/restorecond</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 K89rdisc -&gt; ../init.d/rdisc</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 16 2015 K92ip6tables -&gt; ../init.d/ip6tables</div><div class="line">lrwxrwxrwx.  1 root root   18 11月 29 12:34 K92iptables -&gt; ../init.d/iptables</div><div class="line">lrwxrwxrwx.  1 root root   22 11月 16 2015 S02lvm2-monitor -&gt; ../init.d/lvm2-monitor</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 S10network -&gt; ../init.d/network</div><div class="line">lrwxrwxrwx.  1 root root   16 11月 16 2015 S11auditd -&gt; ../init.d/auditd</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 S12rsyslog -&gt; ../init.d/rsyslog</div><div class="line">lrwxrwxrwx.  1 root root   26 11月 16 2015 S25blk-availability -&gt; ../init.d/blk-availability</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 S25netfs -&gt; ../init.d/netfs</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 16 2015 S26udev-post -&gt; ../init.d/udev-post</div><div class="line">lrwxrwxrwx.  1 root root   14 11月 26 08:19 S55sshd -&gt; ../init.d/sshd</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 S90crond -&gt; ../init.d/crond</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 29 13:12 S95jexec -&gt; ../init.d/jexec</div><div class="line">lrwxrwxrwx.  1 root root   11 11月 16 2015 S99local -&gt; ../rc.local</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>chkconfig 名字就是对/etc/init.d/目录下的服务脚本进行管理的工具，实际上就是对 /etc/rcX.d/下的软链接文件的增删改。</p>
+</blockquote>
 <h2 id="5-sbin-init-执行-etc-rc-d-rc-local-脚本"><a href="#5-sbin-init-执行-etc-rc-d-rc-local-脚本" class="headerlink" title="5. /sbin/init 执行 /etc/rc.d/rc.local 脚本"></a>5. /sbin/init 执行 /etc/rc.d/rc.local 脚本</h2><p>rc.local 是 Linux 留给用户进行个性化设置的地方。比如放一些自定义的启动命令</p>
 <h2 id="6-启动登录终端-sbin-mingetty，等待登录"><a href="#6-启动登录终端-sbin-mingetty，等待登录" class="headerlink" title="6. 启动登录终端/sbin/mingetty，等待登录"></a>6. 启动登录终端/sbin/mingetty，等待登录</h2><p>mingetty 会启动 /bin/login进程，用来验证帐户密码，输入正确的账户密码之后,从/etc/passwd的账户配置里面启动响应的shell,例如下面root帐户使用了bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]# cat /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</div><div class="line">sync:x:5:0:sync:/sbin:/bin/sync</div><div class="line">shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</div><div class="line">halt:x:7:0:halt:/sbin:/sbin/halt</div><div class="line">mail:x:8:12:mail:/var/spool/mail:/sbin/nologin</div></pre></td></tr></table></figure></p>
-<h2 id="7-用户登录后先执行-etc-profile"><a href="#7-用户登录后先执行-etc-profile" class="headerlink" title="7. 用户登录后先执行 /etc/profile"></a>7. 用户登录后先执行 /etc/profile</h2><blockquote>
-<p>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置</p>
+<h1 id="二、用户登录阶段"><a href="#二、用户登录阶段" class="headerlink" title="二、用户登录阶段"></a>二、用户登录阶段</h1><h2 id="7-用户登录后先执行-etc-profile"><a href="#7-用户登录后先执行-etc-profile" class="headerlink" title="7. 用户登录后先执行 /etc/profile"></a>7. 用户登录后先执行 /etc/profile</h2><blockquote>
+<p>这个文件是所有用户登录系统后的设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置</p>
 </blockquote>
 <p>紧接着profile文件里面去启动 /etc/profile.d 下的所有文件</p>
-<h2 id="8-启动用户根目录下的-bash-profile"><a href="#8-启动用户根目录下的-bash-profile" class="headerlink" title="8. 启动用户根目录下的 ~/.bash_profile"></a>8. 启动用户根目录下的 ~/.bash_profile</h2><blockquote>
-<p>每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件 </p>
+<h2 id="8-执行-bash-profile"><a href="#8-执行-bash-profile" class="headerlink" title="8. 执行 ~/.bash_profile"></a>8. 执行 ~/.bash_profile</h2><blockquote>
+<p>每个用户都可使用该文件输入专用于自己使用的shell脚本,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量</p>
 </blockquote>
-<h2 id="9-bash-profile-判断-bashrc文件是否存在并执行"><a href="#9-bash-profile-判断-bashrc文件是否存在并执行" class="headerlink" title="9. ~/.bash_profile 判断 ~/.bashrc文件是否存在并执行"></a>9. ~/.bash_profile 判断 ~/.bashrc文件是否存在并执行</h2><blockquote>
-<p>.bashrc 文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取</p>
+<p>~/.bash_profile会判断 ~/.bashrc文件是否存在并执行，</p>
+<h2 id="9-执行-bashrc"><a href="#9-执行-bashrc" class="headerlink" title="9. 执行 ~/.bashrc"></a>9. 执行 ~/.bashrc</h2><blockquote>
+<p>~/.bashrc 文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取</p>
 </blockquote>
-<h2 id="10-bashrc-判断-etc-bashrc文件是否存在并执行"><a href="#10-bashrc-判断-etc-bashrc文件是否存在并执行" class="headerlink" title="10. ~/.bashrc 判断 /etc/bashrc文件是否存在并执行"></a>10. ~/.bashrc 判断 /etc/bashrc文件是否存在并执行</h2><blockquote>
+<p>~/.bashrc 会判断 /etc/bashrc文件是否存在并执行</p>
+<h2 id="10-执行-etc-bashrc"><a href="#10-执行-etc-bashrc" class="headerlink" title="10. 执行 /etc/bashrc"></a>10. 执行 /etc/bashrc</h2><blockquote>
 <p>为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取（即每次新开一个终端，都会执行bashrc）</p>
 </blockquote>
+<p>这个文件是bash环境的全局文件。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Linux启动顺序&quot;&gt;&lt;a href=&quot;#Linux启动顺序&quot; class=&quot;headerlink&quot; title=&quot;Linux启动顺序&quot;&gt;&lt;/a&gt;Linux启动顺序&lt;/h1&gt;&lt;h2 id=&quot;1-Grub加载内核之后，第一个运行的程序是-sbin-init&quot;&gt;&lt;a 
+      &lt;h1 id=&quot;一、系统启动初始化init阶段&quot;&gt;&lt;a href=&quot;#一、系统启动初始化init阶段&quot; class=&quot;headerlink&quot; title=&quot;一、系统启动初始化init阶段&quot;&gt;&lt;/a&gt;一、系统启动初始化init阶段&lt;/h1&gt;&lt;h2 id=&quot;1-Grub加载内核之后，
     
     </summary>
     
