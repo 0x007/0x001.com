@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.0x001.com/"/>
-  <updated>2017-02-06T02:08:13.000Z</updated>
+  <updated>2017-02-06T02:16:41.000Z</updated>
   <id>http://www.0x001.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.0x001.com/2017/02/06/Linux%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"/>
     <id>http://www.0x001.com/2017/02/06/Linux启动顺序/</id>
     <published>2017-02-06T02:05:32.000Z</published>
-    <updated>2017-02-06T02:08:13.000Z</updated>
+    <updated>2017-02-06T02:16:41.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Linux启动顺序"><a href="#Linux启动顺序" class="headerlink" title="Linux启动顺序"></a>Linux启动顺序</h1><h2 id="1-Grub加载内核之后，第一个运行的程序是-sbin-init"><a href="#1-Grub加载内核之后，第一个运行的程序是-sbin-init" class="headerlink" title="1. Grub加载内核之后，第一个运行的程序是 /sbin/init"></a>1. Grub加载内核之后，第一个运行的程序是 /sbin/init</h2><p>init是sysinit的一个实体进程，是系统所有进程的顶级父进程，PID是1</p>
 <h2 id="2-sbin-init-读取-etc-inittab文件，确定运行级别"><a href="#2-sbin-init-读取-etc-inittab文件，确定运行级别" class="headerlink" title="2.  /sbin/init 读取 /etc/inittab文件，确定运行级别"></a>2.  /sbin/init 读取 /etc/inittab文件，确定运行级别</h2><p><strong>etc/inittab文件的信息会包含以下信息给init程序</strong></p>
@@ -60,13 +60,13 @@
 <p>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置</p>
 </blockquote>
 <p>紧接着profile文件里面去启动 /etc/profile.d 下的所有文件</p>
-<h2 id="8-启动用户根目录下的-bash-profile"><a href="#8-启动用户根目录下的-bash-profile" class="headerlink" title="8. 启动用户根目录下的 .bash_profile"></a>8. 启动用户根目录下的 .bash_profile</h2><blockquote>
+<h2 id="8-启动用户根目录下的-bash-profile"><a href="#8-启动用户根目录下的-bash-profile" class="headerlink" title="8. 启动用户根目录下的 ~/.bash_profile"></a>8. 启动用户根目录下的 ~/.bash_profile</h2><blockquote>
 <p>每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件 </p>
 </blockquote>
-<h2 id="9-bash-profile-判断-bashrc文件是否存在并执行"><a href="#9-bash-profile-判断-bashrc文件是否存在并执行" class="headerlink" title="9. .bash_profile 判断 .bashrc文件是否存在并执行"></a>9. .bash_profile 判断 .bashrc文件是否存在并执行</h2><blockquote>
+<h2 id="9-bash-profile-判断-bashrc文件是否存在并执行"><a href="#9-bash-profile-判断-bashrc文件是否存在并执行" class="headerlink" title="9. ~/.bash_profile 判断 ~/.bashrc文件是否存在并执行"></a>9. ~/.bash_profile 判断 ~/.bashrc文件是否存在并执行</h2><blockquote>
 <p>.bashrc 文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取</p>
 </blockquote>
-<h2 id="10-bashrc-判断-etc-bashrc文件是否存在并执行"><a href="#10-bashrc-判断-etc-bashrc文件是否存在并执行" class="headerlink" title="10. .bashrc 判断 /etc/bashrc文件是否存在并执行"></a>10. .bashrc 判断 /etc/bashrc文件是否存在并执行</h2><blockquote>
+<h2 id="10-bashrc-判断-etc-bashrc文件是否存在并执行"><a href="#10-bashrc-判断-etc-bashrc文件是否存在并执行" class="headerlink" title="10. ~/.bashrc 判断 /etc/bashrc文件是否存在并执行"></a>10. ~/.bashrc 判断 /etc/bashrc文件是否存在并执行</h2><blockquote>
 <p>为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取（即每次新开一个终端，都会执行bashrc）</p>
 </blockquote>
 ]]></content>
