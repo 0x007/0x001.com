@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.0x001.com/"/>
-  <updated>2017-01-31T16:45:28.000Z</updated>
+  <updated>2017-02-06T02:08:13.000Z</updated>
   <id>http://www.0x001.com/</id>
   
   <author>
@@ -16,13 +16,148 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux启动顺序</title>
+    <link href="http://www.0x001.com/2017/02/06/Linux%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"/>
+    <id>http://www.0x001.com/2017/02/06/Linux启动顺序/</id>
+    <published>2017-02-06T02:05:32.000Z</published>
+    <updated>2017-02-06T02:08:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux启动顺序"><a href="#Linux启动顺序" class="headerlink" title="Linux启动顺序"></a>Linux启动顺序</h1><h2 id="1-Grub加载内核之后，第一个运行的程序是-sbin-init"><a href="#1-Grub加载内核之后，第一个运行的程序是-sbin-init" class="headerlink" title="1. Grub加载内核之后，第一个运行的程序是 /sbin/init"></a>1. Grub加载内核之后，第一个运行的程序是 /sbin/init</h2><p>init是sysinit的一个实体进程，是系统所有进程的顶级父进程，PID是1</p>
+<h2 id="2-sbin-init-读取-etc-inittab文件，确定运行级别"><a href="#2-sbin-init-读取-etc-inittab文件，确定运行级别" class="headerlink" title="2.  /sbin/init 读取 /etc/inittab文件，确定运行级别"></a>2.  /sbin/init 读取 /etc/inittab文件，确定运行级别</h2><p><strong>etc/inittab文件的信息会包含以下信息给init程序</strong></p>
+<ul>
+<li>捕获组合键的定义</li>
+<li>定义电源 fail/restore 脚本</li>
+<li>启动 getty 和虚拟控制台</li>
+<li>系统需要进入的 runlevel<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]# cat /etc/inittab</div><div class="line"># inittab is only used by upstart for the default runlevel.</div><div class="line">#</div><div class="line"># ADDING OTHER CONFIGURATION HERE WILL HAVE NO EFFECT ON YOUR SYSTEM.</div><div class="line">#</div><div class="line"># System initialization is started by /etc/init/rcS.conf</div><div class="line">#</div><div class="line"># Individual runlevels are started by /etc/init/rc.conf</div><div class="line">#</div><div class="line"># Ctrl-Alt-Delete is handled by /etc/init/control-alt-delete.conf</div><div class="line">#</div><div class="line"># Terminal gettys are handled by /etc/init/tty.conf and /etc/init/serial.conf,</div><div class="line"># with configuration in /etc/sysconfig/init.</div><div class="line">#</div><div class="line"># For information on how to write upstart event handlers, or how</div><div class="line"># upstart works, see init(5), init(8), and initctl(8).</div><div class="line">#</div><div class="line"># Default runlevel. The runlevels used are:</div><div class="line">#   0 - halt (Do NOT set initdefault to this)</div><div class="line">#   1 - Single user mode</div><div class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">#   3 - Full multiuser mode</div><div class="line">#   4 - unused</div><div class="line">#   5 - X11</div><div class="line">#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">#</div><div class="line">id:3:initdefault:</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当前系统使用有网络支持的多用户模式，字符终端，没有图形界面</p>
+<p><strong>Linux的运行等级设定如下:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">0：关机</div><div class="line">1：单用户模式</div><div class="line">2：无网络支持的多用户模式</div><div class="line">3：有网络支持的多用户模式</div><div class="line">4：保留，未使用</div><div class="line">5：有网络支持有X-Window支持的多用户模式</div><div class="line">6：重新引导系统，即重启</div></pre></td></tr></table></figure></p>
+<h2 id="3-sbin-init-执行-etc-rc-d-rc-sysinit脚本"><a href="#3-sbin-init-执行-etc-rc-d-rc-sysinit脚本" class="headerlink" title="3. /sbin/init 执行 /etc/rc.d/rc.sysinit脚本"></a>3. /sbin/init 执行 /etc/rc.d/rc.sysinit脚本</h2><p><strong>sysinit的是系统启动的初始化脚本, 会做以下一些工作：</strong></p>
+<ul>
+<li>激活 udev 和 selinux</li>
+<li>设置定义在/etc/sysctl.conf 中的内核参数</li>
+<li>设置系统时钟</li>
+<li>加载 keymaps</li>
+<li>使用交换分区</li>
+<li>设置主机名(hostname)</li>
+<li>根分区检查和 remount</li>
+<li>激活 RAID 和 LVM 设备</li>
+<li>开启磁盘配额</li>
+<li>检查并挂载所有文件系统</li>
+<li>清除过期的 locks 和 PID 文件</li>
+</ul>
+<h2 id="4-sbin-init-执行-etc-rc-d-rc脚本"><a href="#4-sbin-init-执行-etc-rc-d-rc脚本" class="headerlink" title="4. /sbin/init 执行 /etc/rc.d/rc脚本"></a>4. /sbin/init 执行 /etc/rc.d/rc脚本</h2><blockquote>
+<p>/etc/rc脚本确定 /etc/inittab文件配置的运行级别ID(X)。</p>
+</blockquote>
+<p>每个 runlevel X 都有一个这样的目录，目录名为/etc/rc.d/rcX.d。在这些目录下存放着很多不同的脚本。</p>
+<p>文件名以 S 开头的脚本就是启动时应该运行的脚本，S 后面跟的数字定义了这些脚本的执行顺序。</p>
+<p>文件名以 K 开头的脚本表示启动的时候不执行。</p>
+<p>在/etc/rc.d/rcX.d 目录下的脚本其实都是一些软链接文件，真实的脚本文件存放在/etc/init.d 目录下, 这个目录的文件通常被称为Linux服务启动脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[root@centos rc3.d]# pwd</div><div class="line">/etc/rc3.d</div><div class="line">[root@centos rc3.d]# ls -al</div><div class="line">总用量 8</div><div class="line">drwxr-xr-x.  2 root root 4096 11月 29 13:12 .</div><div class="line">drwxr-xr-x. 10 root root 4096 1月  27 09:34 ..</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 29 12:49 K10saslauthd -&gt; ../init.d/saslauthd</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 K30postfix -&gt; ../init.d/postfix</div><div class="line">lrwxrwxrwx.  1 root root   20 11月 16 2015 K50netconsole -&gt; ../init.d/netconsole</div><div class="line">lrwxrwxrwx.  1 root root   21 11月 16 2015 K87restorecond -&gt; ../init.d/restorecond</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 K89rdisc -&gt; ../init.d/rdisc</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 16 2015 K92ip6tables -&gt; ../init.d/ip6tables</div><div class="line">lrwxrwxrwx.  1 root root   18 11月 29 12:34 K92iptables -&gt; ../init.d/iptables</div><div class="line">lrwxrwxrwx.  1 root root   22 11月 16 2015 S02lvm2-monitor -&gt; ../init.d/lvm2-monitor</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 S10network -&gt; ../init.d/network</div><div class="line">lrwxrwxrwx.  1 root root   16 11月 16 2015 S11auditd -&gt; ../init.d/auditd</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 S12rsyslog -&gt; ../init.d/rsyslog</div><div class="line">lrwxrwxrwx.  1 root root   26 11月 16 2015 S25blk-availability -&gt; ../init.d/blk-availability</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 S25netfs -&gt; ../init.d/netfs</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 16 2015 S26udev-post -&gt; ../init.d/udev-post</div><div class="line">lrwxrwxrwx.  1 root root   14 11月 26 08:19 S55sshd -&gt; ../init.d/sshd</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 S90crond -&gt; ../init.d/crond</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 29 13:12 S95jexec -&gt; ../init.d/jexec</div><div class="line">lrwxrwxrwx.  1 root root   11 11月 16 2015 S99local -&gt; ../rc.local</div></pre></td></tr></table></figure></p>
+<h2 id="5-sbin-init-执行-etc-rc-d-rc-local-脚本"><a href="#5-sbin-init-执行-etc-rc-d-rc-local-脚本" class="headerlink" title="5. /sbin/init 执行 /etc/rc.d/rc.local 脚本"></a>5. /sbin/init 执行 /etc/rc.d/rc.local 脚本</h2><p>rc.local 是 Linux 留给用户进行个性化设置的地方。比如放一些自定义的启动命令</p>
+<h2 id="6-启动登录终端-sbin-mingetty，等待登录"><a href="#6-启动登录终端-sbin-mingetty，等待登录" class="headerlink" title="6. 启动登录终端/sbin/mingetty，等待登录"></a>6. 启动登录终端/sbin/mingetty，等待登录</h2><p>mingetty 会启动 /bin/login进程，用来验证帐户密码，输入正确的账户密码之后,从/etc/passwd的账户配置里面启动响应的shell,例如下面root帐户使用了bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]# cat /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</div><div class="line">sync:x:5:0:sync:/sbin:/bin/sync</div><div class="line">shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</div><div class="line">halt:x:7:0:halt:/sbin:/sbin/halt</div><div class="line">mail:x:8:12:mail:/var/spool/mail:/sbin/nologin</div></pre></td></tr></table></figure></p>
+<h2 id="7-用户登录后先执行-etc-profile"><a href="#7-用户登录后先执行-etc-profile" class="headerlink" title="7. 用户登录后先执行 /etc/profile"></a>7. 用户登录后先执行 /etc/profile</h2><blockquote>
+<p>此文件为系统的每个用户设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置</p>
+</blockquote>
+<p>紧接着profile文件里面去启动 /etc/profile.d 下的所有文件</p>
+<h2 id="8-启动用户根目录下的-bash-profile"><a href="#8-启动用户根目录下的-bash-profile" class="headerlink" title="8. 启动用户根目录下的 .bash_profile"></a>8. 启动用户根目录下的 .bash_profile</h2><blockquote>
+<p>每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量,执行用户的.bashrc文件 </p>
+</blockquote>
+<h2 id="9-bash-profile-判断-bashrc文件是否存在并执行"><a href="#9-bash-profile-判断-bashrc文件是否存在并执行" class="headerlink" title="9. .bash_profile 判断 .bashrc文件是否存在并执行"></a>9. .bash_profile 判断 .bashrc文件是否存在并执行</h2><blockquote>
+<p>.bashrc 文件包含专用于你的bash shell的bash信息,当登录时以及每次打开新的shell时,该该文件被读取</p>
+</blockquote>
+<h2 id="10-bashrc-判断-etc-bashrc文件是否存在并执行"><a href="#10-bashrc-判断-etc-bashrc文件是否存在并执行" class="headerlink" title="10. .bashrc 判断 /etc/bashrc文件是否存在并执行"></a>10. .bashrc 判断 /etc/bashrc文件是否存在并执行</h2><blockquote>
+<p>为每一个运行bash shell的用户执行此文件.当bash shell被打开时,该文件被读取（即每次新开一个终端，都会执行bashrc）</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux启动顺序&quot;&gt;&lt;a href=&quot;#Linux启动顺序&quot; class=&quot;headerlink&quot; title=&quot;Linux启动顺序&quot;&gt;&lt;/a&gt;Linux启动顺序&lt;/h1&gt;&lt;h2 id=&quot;1-Grub加载内核之后，第一个运行的程序是-sbin-init&quot;&gt;&lt;a 
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://www.0x001.com/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="http://www.0x001.com/tags/Linux/"/>
+    
+      <category term="启动顺序" scheme="http://www.0x001.com/tags/%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"/>
+    
+      <category term="init" scheme="http://www.0x001.com/tags/init/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>龙马精神</title>
+    <link href="http://www.0x001.com/2017/02/04/%E9%BE%99%E9%A9%AC%E7%B2%BE%E7%A5%9E/"/>
+    <id>http://www.0x001.com/2017/02/04/龙马精神/</id>
+    <published>2017-02-03T18:03:47.000Z</published>
+    <updated>2017-02-03T19:23:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="龙马精神-易经哲学"><a href="#龙马精神-易经哲学" class="headerlink" title="龙马精神,易经哲学"></a>龙马精神,易经哲学</h3><blockquote>
+<p>龙和马代表了两个极端，两种精神，一刚一柔。一个是领导者，一个是跟随者。一个是阳刚的、权利的父亲的代表，一个是柔顺的、包容的母亲的代表。<br>它代表了人的一生，不管你是做什么事的，就算是打工或者经营公司，你总会在某些时候当一个领导者，当好领导者并带领大家向前冲。有时候你是一个跟随者，要跟好一个领导者，要辅佐他一起完成事业。<br>两个角色你一生都会遇到,两个角色你一生都要扮演。<br>这就是龙马精神。</p>
+</blockquote>
+<h3 id="关于乾坤挂的学习和解读。"><a href="#关于乾坤挂的学习和解读。" class="headerlink" title="关于乾坤挂的学习和解读。"></a>关于乾坤挂的学习和解读。</h3><p>乾为天，坤为地。乾是<strong>龙</strong>，坤是<strong>马</strong>。所以中国有句古话，叫“龙马精神”，讲的就是易经里面的乾卦和坤卦的精神。</p>
+<h3 id="爻"><a href="#爻" class="headerlink" title="爻"></a>爻</h3><p>先解释一下卦前面的线条，叫 “爻”<br><strong>⎯⏤⎯⏤⎯⏤</strong> 阳爻 (中间没有断掉)<br><strong>⎯⏤⎯   ⎯⏤</strong> 阴爻 (中间有断掉)</p>
+<h3 id="乾卦-［元、亨、利、贞］"><a href="#乾卦-［元、亨、利、贞］" class="headerlink" title="乾卦 ［元、亨、利、贞］"></a>乾卦 ［元、亨、利、贞］</h3><p>◼︎◼︎◼︎◼︎◼︎ 上九：亢龙有悔。<br>◼︎◼︎◼︎◼︎◼︎ 九五：飞龙在天，利见大人。<br>◼︎◼︎◼︎◼︎◼︎ 九四：或跃在渊，无咎。<br>◼︎◼︎◼︎◼︎◼︎ 九三：君子终日乾乾，夕惕若；历，无咎。<br>◼︎◼︎◼︎◼︎◼︎ 九二：见龙在田，利见大人。<br>◼︎◼︎◼︎◼︎◼︎ 初九：潜龙勿用。<br>　　　　　用九：见群龙无首，吉。</p>
+<p>乾卦讲的是为君之道、为父之道，也就是讲领导者的几个成长阶段应该怎么做，这就是乾卦的内涵精髓。</p>
+<p>卦辞四个字的意思：元(开始)、亨(通顺)、利(有利)、贞(坚持)</p>
+<p>第一个阶段，初九：潜龙勿用。</p>
+<blockquote>
+<p>一开始的时候，羽翼未丰，不能锋芒必露，慢慢学习和积累，不能太暴露自己的才华和计划，要隐藏起来，避免竞争，不能大损，养精蓄锐。凡事应当静待时机，切勿急躁。</p>
+</blockquote>
+<p>第二个阶段，九二：见龙在田，利见大人。</p>
+<blockquote>
+<p>这个时候在野外打拼，多见一些朋友，拜会一些有才华和权贵的人。你会遇见贵人，遇见辅佐你的人，帮助你的人。</p>
+</blockquote>
+<p>第三个阶段，九三：君子终日乾乾，夕惕若；历，无咎。</p>
+<blockquote>
+<p>每天都需要很努力的学习，埋头苦干，不能松懈，到了晚上更要自我反省；凡事开头难，这个时候就算遇到了困难和危机，若能挺过去，就不会有什么伤害。</p>
+</blockquote>
+<p>第四个阶段，九四：或跃在渊，无咎。</p>
+<blockquote>
+<p>这个时候当力争上游，多做尝试，不要怕失败，可进可退。就算有什么困难，也不会有什么伤害。</p>
+</blockquote>
+<p>第五阶段，九五：飞龙在天，利见大人。</p>
+<blockquote>
+<p>这个时候已经成为成功的领导者，多出去和其它更成功的人交流，沟通，学习，结识一些在事业上能帮助你成长的人。 了解一下赵薇的、马云的、王石的朋友圈就知道了。</p>
+</blockquote>
+<p>第六阶段，上九：亢龙有悔。</p>
+<blockquote>
+<p>这个时候需要懂得反省，要不然物极必反，会犯错。</p>
+</blockquote>
+<p>用九：见群龙无首，吉。</p>
+<blockquote>
+<p>这个很有意思，前面没有爻,这个是总结.<br>易经的群龙无首，并不是我们常讲的这个团队群龙无首，快完蛋了。<br>这个是讲领导者要用的团队，所以叫用九。讲这个团队里面各个领域都有精英，非常能干的，可以独立负责一个领域的所有工作，他们各司其职，兢兢业业，不相护竞争大位。<br>这样的团队才是一个领导者需要和打造的精英团队。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;龙马精神-易经哲学&quot;&gt;&lt;a href=&quot;#龙马精神-易经哲学&quot; class=&quot;headerlink&quot; title=&quot;龙马精神,易经哲学&quot;&gt;&lt;/a&gt;龙马精神,易经哲学&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;龙和马代表了两个极端，两种精神，一刚一柔。一个是领导者，一
+    
+    </summary>
+    
+      <category term="随笔日志" scheme="http://www.0x001.com/categories/%E9%9A%8F%E7%AC%94%E6%97%A5%E5%BF%97/"/>
+    
+    
+      <category term="易经" scheme="http://www.0x001.com/tags/%E6%98%93%E7%BB%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python设置国内镜像</title>
     <link href="http://www.0x001.com/2017/02/01/python%E8%AE%BE%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/"/>
     <id>http://www.0x001.com/2017/02/01/python设置国内镜像/</id>
     <published>2017-01-31T16:13:45.000Z</published>
-    <updated>2017-01-31T16:45:28.000Z</updated>
+    <updated>2017-02-02T08:44:31.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Linux下设置国内镜像"><a href="#Linux下设置国内镜像" class="headerlink" title="Linux下设置国内镜像"></a>Linux下设置国内镜像</h2><p>阿里的源地址：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple/</a><br>豆瓣的源地址：<a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a></p>
+    <content type="html"><![CDATA[<h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><blockquote>
+<p>每次使用pip安装总是很慢，有时候卡很久不动，为了解决这个问题，所以得配置到国内的镜像，这样走国内电信比较快</p>
+</blockquote>
+<h2 id="Linux下设置国内镜像"><a href="#Linux下设置国内镜像" class="headerlink" title="Linux下设置国内镜像"></a>Linux下设置国内镜像</h2><p>阿里的源地址：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple/</a><br>豆瓣的源地址：<a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a></p>
 <h3 id="easy-install-配置"><a href="#easy-install-配置" class="headerlink" title="easy_install 配置"></a>easy_install 配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]<span class="comment"># cat ~/.pydistutils.cfg</span></div><div class="line">[easy_install]</div><div class="line">index-url=http://pypi.douban.com/simple</div></pre></td></tr></table></figure>
 <h3 id="pip-配置"><a href="#pip-配置" class="headerlink" title="pip 配置"></a>pip 配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]<span class="comment"># cat ~/.pip/pip.conf</span></div><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line">index-url = http://pypi.douban.com/simple/</div><div class="line">[install]</div><div class="line">trusted-host = pypi.douban.com</div><div class="line">[list]</div><div class="line">format=columns</div><div class="line">console.log(<span class="string">"我亮了"</span>)</div></pre></td></tr></table></figure>
 <h2 id="Windows-设置国内镜像"><a href="#Windows-设置国内镜像" class="headerlink" title="Windows 设置国内镜像"></a>Windows 设置国内镜像</h2><p>easy_install 配置 %HOME%\pydistutils.cfg文件，内容与Linux的easy_install配置文件一样<br>pip 配置 %HOME%\pip\pip.ini文件，内容与Linux的pip配置文件一样</p>
@@ -30,7 +165,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Linux下设置国内镜像&quot;&gt;&lt;a href=&quot;#Linux下设置国内镜像&quot; class=&quot;headerlink&quot; title=&quot;Linux下设置国内镜像&quot;&gt;&lt;/a&gt;Linux下设置国内镜像&lt;/h2&gt;&lt;p&gt;阿里的源地址：&lt;a href=&quot;http://mirrors
+      &lt;h2 id=&quot;场景&quot;&gt;&lt;a href=&quot;#场景&quot; class=&quot;headerlink&quot; title=&quot;场景&quot;&gt;&lt;/a&gt;场景&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;每次使用pip安装总是很慢，有时候卡很久不动，为了解决这个问题，所以得配置到国内的镜像，这样走国内电信比较快&lt;/p
     
     </summary>
     

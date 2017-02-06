@@ -86,19 +86,28 @@
 
 
 
-<meta name="description" content="Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple
-easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index-url=http://pypi.douban.com/si">
+<meta name="description" content="场景
+每次使用pip安装总是很慢，有时候卡很久不动，为了解决这个问题，所以得配置到国内的镜像，这样走国内电信比较快
+
+Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple
+easy_install 配置123[root@centos ~]# cat ~/.pydis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python设置国内镜像">
 <meta property="og:url" content="http://www.0x001.com/2017/02/01/python设置国内镜像/index.html">
 <meta property="og:site_name" content="0x001 Team">
-<meta property="og:description" content="Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple
-easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index-url=http://pypi.douban.com/si">
-<meta property="og:updated_time" content="2017-01-31T16:45:28.000Z">
+<meta property="og:description" content="场景
+每次使用pip安装总是很慢，有时候卡很久不动，为了解决这个问题，所以得配置到国内的镜像，这样走国内电信比较快
+
+Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple
+easy_install 配置123[root@centos ~]# cat ~/.pydis">
+<meta property="og:updated_time" content="2017-02-02T08:44:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python设置国内镜像">
-<meta name="twitter:description" content="Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple
-easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index-url=http://pypi.douban.com/si">
+<meta name="twitter:description" content="场景
+每次使用pip安装总是很慢，有时候卡很久不动，为了解决这个问题，所以得配置到国内的镜像，这样走国内电信比较快
+
+Linux下设置国内镜像阿里的源地址：http://mirrors.aliyun.com/pypi/simple/豆瓣的源地址：http://pypi.douban.com/simple
+easy_install 配置123[root@centos ~]# cat ~/.pydis">
 
 
 
@@ -405,7 +414,10 @@ easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index
       
 
       
-        <h2 id="Linux下设置国内镜像"><a href="#Linux下设置国内镜像" class="headerlink" title="Linux下设置国内镜像"></a>Linux下设置国内镜像</h2><p>阿里的源地址：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple/</a><br>豆瓣的源地址：<a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a></p>
+        <h2 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h2><blockquote>
+<p>每次使用pip安装总是很慢，有时候卡很久不动，为了解决这个问题，所以得配置到国内的镜像，这样走国内电信比较快</p>
+</blockquote>
+<h2 id="Linux下设置国内镜像"><a href="#Linux下设置国内镜像" class="headerlink" title="Linux下设置国内镜像"></a>Linux下设置国内镜像</h2><p>阿里的源地址：<a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="external">http://mirrors.aliyun.com/pypi/simple/</a><br>豆瓣的源地址：<a href="http://pypi.douban.com/simple" target="_blank" rel="external">http://pypi.douban.com/simple</a></p>
 <h3 id="easy-install-配置"><a href="#easy-install-配置" class="headerlink" title="easy_install 配置"></a>easy_install 配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]<span class="comment"># cat ~/.pydistutils.cfg</span></div><div class="line">[easy_install]</div><div class="line">index-url=http://pypi.douban.com/simple</div></pre></td></tr></table></figure>
 <h3 id="pip-配置"><a href="#pip-配置" class="headerlink" title="pip 配置"></a>pip 配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]<span class="comment"># cat ~/.pip/pip.conf</span></div><div class="line">[global]</div><div class="line">timeout = 60</div><div class="line">index-url = http://pypi.douban.com/simple/</div><div class="line">[install]</div><div class="line">trusted-host = pypi.douban.com</div><div class="line">[list]</div><div class="line">format=columns</div><div class="line">console.log(<span class="string">"我亮了"</span>)</div></pre></td></tr></table></figure>
 <h2 id="Windows-设置国内镜像"><a href="#Windows-设置国内镜像" class="headerlink" title="Windows 设置国内镜像"></a>Windows 设置国内镜像</h2><p>easy_install 配置 %HOME%\pydistutils.cfg文件，内容与Linux的easy_install配置文件一样<br>pip 配置 %HOME%\pip\pip.ini文件，内容与Linux的pip配置文件一样</p>
@@ -450,6 +462,10 @@ easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/04/龙马精神/" rel="prev" title="龙马精神">
+                龙马精神 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +558,7 @@ easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -551,7 +567,7 @@ easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -560,7 +576,7 @@ easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -613,7 +629,7 @@ easy_install 配置123[root@centos ~]# cat ~/.pydistutils.cfg[easy_install]index
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下设置国内镜像"><span class="nav-number">1.</span> <span class="nav-text">Linux下设置国内镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#easy-install-配置"><span class="nav-number">1.1.</span> <span class="nav-text">easy_install 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-配置"><span class="nav-number">1.2.</span> <span class="nav-text">pip 配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-设置国内镜像"><span class="nav-number">2.</span> <span class="nav-text">Windows 设置国内镜像</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#场景"><span class="nav-number">1.</span> <span class="nav-text">场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下设置国内镜像"><span class="nav-number">2.</span> <span class="nav-text">Linux下设置国内镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#easy-install-配置"><span class="nav-number">2.1.</span> <span class="nav-text">easy_install 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip-配置"><span class="nav-number">2.2.</span> <span class="nav-text">pip 配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows-设置国内镜像"><span class="nav-number">3.</span> <span class="nav-text">Windows 设置国内镜像</span></a></li></ol></div>
             
 
           </div>
