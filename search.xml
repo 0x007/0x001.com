@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[Linux账户管理]]></title>
       <url>%2F2017%2F02%2F18%2FLinux%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86%2F</url>
-      <content type="text"><![CDATA[一、Linux账户管理的基础 Linux下的所有账户数据都存储在文件中，涉及到的文件如下: 文件名 作用描述 /etc/passwd 帐户文件 /etc/shadow 密码文件 /etc/group 用户组文件 /etc/gsshadow 用户组密码文件 /etc/sudoers 用户可执行指令控制文件 /etc/default/useradd 新增用户默认配置文件 /etc/login.defs 用户限制策略文件 二、 /etc/passwd Linux的账户存储文件]]></content>
+      <content type="text"><![CDATA[一、Linux账户管理的基础 Linux下的所有账户数据都存储在文件中，涉及到的文件如下: 文件名 作用描述 /etc/passwd 帐户文件 /etc/shadow 密码文件 /etc/group 用户组文件 /etc/gsshadow 用户组密码文件 /etc/sudoers 用户可执行指令控制文件 /etc/default/useradd 新增用户默认配置文件 /etc/login.defs 用户限制策略文件 二、 /etc/passwd Linux的账户存储文件,我们通过几行配置来简单描述一下，1234root:x:0:0:root:/root:/bin/bashbin:x:1:1:bin:/bin:/sbin/nologinsshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologinabc:x:500:500::/home/abc:/bin/bash 在文件中，每一个字段都以 “:” 分隔，分别定义了用户的各方面属性，各个字段的顺序和含义如下： 账户名称 : 口令 : 用户ID : 用户组ID : 用户描述 : 用户主目录 : 命令解释程序(shell) 重点讲一下口令和命令解释程序]]></content>
     </entry>
 
     

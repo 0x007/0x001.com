@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.0x001.com/"/>
-  <updated>2017-02-18T07:32:11.000Z</updated>
+  <updated>2017-02-18T08:38:44.000Z</updated>
   <id>http://www.0x001.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.0x001.com/2017/02/18/Linux%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/"/>
     <id>http://www.0x001.com/2017/02/18/Linux账户管理/</id>
     <published>2017-02-18T02:05:21.000Z</published>
-    <updated>2017-02-18T07:32:11.000Z</updated>
+    <updated>2017-02-18T08:38:44.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一、Linux账户管理的基础"><a href="#一、Linux账户管理的基础" class="headerlink" title="一、Linux账户管理的基础"></a>一、Linux账户管理的基础</h1><blockquote>
 <p>Linux下的所有账户数据都存储在文件中，涉及到的文件如下:</p>
@@ -64,8 +64,11 @@
 </tbody>
 </table>
 <h1 id="二、-etc-passwd"><a href="#二、-etc-passwd" class="headerlink" title="二、 /etc/passwd"></a>二、 /etc/passwd</h1><blockquote>
-<p>Linux的账户存储文件</p>
+<p>Linux的账户存储文件,我们通过几行配置来简单描述一下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div><div class="line">abc:x:500:500::/home/abc:/bin/bash</div></pre></td></tr></table></figure></p>
 </blockquote>
+<p>在文件中，每一个字段都以 “:” 分隔，分别定义了用户的各方面属性，各个字段的顺序和含义如下：</p>
+<p>账户名称 : 口令 : 用户ID : 用户组ID : 用户描述 : 用户主目录 : 命令解释程序(shell)</p>
+<p>重点讲一下口令和命令解释程序</p>
 ]]></content>
     
     <summary type="html">

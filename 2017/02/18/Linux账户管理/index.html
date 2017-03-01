@@ -158,7 +158,7 @@ Linux下的所有账户数据都存储在文件中，涉及到的文件如下:
 
 /etc/default/useradd
 新增用户默认配">
-<meta property="og:updated_time" content="2017-02-18T07:32:11.000Z">
+<meta property="og:updated_time" content="2017-02-18T08:38:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux账户管理">
 <meta name="twitter:description" content="一、Linux账户管理的基础
@@ -543,8 +543,11 @@ Linux下的所有账户数据都存储在文件中，涉及到的文件如下:
 </tbody>
 </table>
 <h1 id="二、-etc-passwd"><a href="#二、-etc-passwd" class="headerlink" title="二、 /etc/passwd"></a>二、 /etc/passwd</h1><blockquote>
-<p>Linux的账户存储文件</p>
+<p>Linux的账户存储文件,我们通过几行配置来简单描述一下，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin</div><div class="line">abc:x:500:500::/home/abc:/bin/bash</div></pre></td></tr></table></figure></p>
 </blockquote>
+<p>在文件中，每一个字段都以 “:” 分隔，分别定义了用户的各方面属性，各个字段的顺序和含义如下：</p>
+<p>账户名称 : 口令 : 用户ID : 用户组ID : 用户描述 : 用户主目录 : 命令解释程序(shell)</p>
+<p>重点讲一下口令和命令解释程序</p>
 
       
     </div>
